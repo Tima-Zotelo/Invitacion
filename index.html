@@ -1,1 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El cumplañito</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .map-link {
+            display: inline-block;
+            padding: 8px 14px;
+            background: #ff4b5c;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .map-link:hover {
+            background: #ff9a9e;
+            transform: scale(1.05);
+        }
+
+
+        .foto {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            margin: 0 auto 20px auto;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .confirm-btn {
+            display: inline-block;
+            padding: 10px 18px;
+            background: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background 0.3s ease, transform 0.2s ease;
+            margin-top: 15px;
+        }
+
+        .confirm-btn:hover {
+            background: #45a049;
+            transform: scale(1.05);
+        }
+
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+            padding: 25px;
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        h1 {
+            color: #ff4b5c;
+            animation: bounce 2s infinite;
+        }
+
+        p {
+            margin: 10px 0;
+            font-size: 16px;
+            animation: slideUp 1s ease-in-out;
+        }
+
+        .emoji {
+            font-size: 50px;
+            animation: spin 4s linear infinite;
+            display: inline-block;
+        }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .card {
+                padding: 20px;
+                font-size: 14px;
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+
+            .emoji {
+                font-size: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card" id="invitacion"></div>
+    <script>
+        const fecha = "Martes, 20 de enero (cumplo el 21 xd)";
+        const lugar = `<a href="https://goo.gl/maps/Qrq2LgCd6Y8rENFt8?g_st=aw" target="_blank" class="map-link">Acá<a>`;;
+        const hora = "Cuando pinte pero recomiendo a las 21hs";
+        const mensaje = "⚠️ Traer alcohol o colaborar con el fondo común al alias: timazotelo.mp ⚠️";
+        const img = 'https://i.postimg.cc/cJGcZZXr/Jejox.png'
+        const confirmar = `<a href="https://youtu.be/dQw4w9WgXcQ?si=SVzJSjvL5yuvU2Lb" target="_blank" class="confirm-btn">✅ Confirmar asistencia</a>`;
+
+        const tarjeta = `
+        <img src= ${img} alt="Foto de Matias" class="emoji foto">
+        <h1>Te invito a partirnos la pera</h1>
+        <p><strong>📅 Fecha:</strong> ${fecha}</p>
+        <p><strong>📍 Lugar:</strong> ${lugar}</p>
+        <p><strong>⏰ Hora:</strong> ${hora}</p>
+        <p>${mensaje}</p>
+        <div>${confirmar}</div>
+    `;
+
+        document.getElementById("invitacion").innerHTML = tarjeta;
+    </script>
+</body>
+
+</html>
